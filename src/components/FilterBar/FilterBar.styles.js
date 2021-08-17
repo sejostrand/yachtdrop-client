@@ -1,4 +1,3 @@
-import { COLORS } from '@assets/theme/theme';
 import styled from 'styled-components';
 
 export const FilterGrid = styled.div`

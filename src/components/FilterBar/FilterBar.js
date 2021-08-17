@@ -93,67 +93,6 @@ const CheckBoxItem = styled.a`
   }
 `;
 
-const LabelContainer = styled.div`
-  position: absolute;
-  transform: translate(216px, 115px);
-  transform: ${(props) =>
-    props.filterBar ? 'translate(185px, 175px)' : 'translate(-50px, 175px)'};
-  z-index: 5;
-`;
-
-const FilterLabel = styled.div`
-  color: ${COLORS.lightGray};
-  font-size: 18px;
-  letter-spacing: 5px;
-  transform: rotate(-90deg);
-`;
-
-const FilterToggle2 = styled.div`
-  z-index: 5;
-  position: absolute;
-  display: flex;
-  padding: 12px 6px 10px 5px;
-  height: min-content;
-  width: min-content;
-  border-radius: 10px;
-  background-color: #f8694b;
-  text-align: center;
-  color: white;
-  font-size: 16px;
-  font-family: 'consolas';
-  cursor: pointer;
-  transform: ${(props) =>
-    props.filterBar ? 'translate(256px, 30px)' : 'translate(19px, 30px)'};
-  transition: all 0.1s;
-
-  @media (max-width: 960px) {
-    visibility: visible;
-  }
-`;
-
-const FilterToggle1 = styled.div`
-  z-index: 5;
-  position: absolute;
-  display: flex;
-  padding: 12px 6px 10px 5px;
-  height: min-content;
-  width: min-content;
-  border-radius: 10px;
-  background-color: #f8694b;
-  text-align: center;
-  color: white;
-  font-size: 16px;
-  font-family: 'consolas';
-  cursor: pointer;
-  transform: ${(props) =>
-    props.filterBar ? 'translate(256px, 30px)' : 'translate(19px, 30px)'};
-  transition: all 0.1s;
-
-  @media (max-width: 960px) {
-    visibility: visible;
-  }
-`;
-
 const FilterBar = (props) => {
   //WINE TAGS
   const Region = ['argentina', 'australia', 'austria', 'chile', 'france'];
@@ -183,7 +122,7 @@ const FilterBar = (props) => {
     }
 
     setCategory(value) {
-      if (this.category == value) {
+      if (this.category === value) {
         this.category = null;
         this.subCategory = null;
         this.categoryTags = null;
@@ -195,7 +134,7 @@ const FilterBar = (props) => {
     }
 
     setSubCategory(value) {
-      if (this.subCategory == value) {
+      if (this.subCategory === value) {
         this.subCategory = null;
       } else {
         this.subCategory = value;
@@ -214,9 +153,9 @@ const FilterBar = (props) => {
     }
 
     setSort(value) {
-      if (this.sort == `${value}:ASC&`) {
+      if (this.sort === `${value}:ASC&`) {
         this.sort = `${value}:DSC&`;
-      } else if (this.sort == `${value}:DSC&`) {
+      } else if (this.sort === `${value}:DSC&`) {
         this.sort = null;
       } else {
         this.sort = `${value}:ASC&`;
@@ -246,12 +185,12 @@ const FilterBar = (props) => {
   //document.location.search = state of the filtering query
   const checkCategory = (tag) => {
     const params = new ParamsFilter(document.location.search);
-    return params.category != tag;
+    return params.category !== tag;
   };
 
   const checkSubCategory = (tag) => {
     const params = new ParamsFilter(document.location.search);
-    return params.subCategory != tag;
+    return params.subCategory !== tag;
   };
 
   const checkCategoryTag = (tag) => {

@@ -88,7 +88,6 @@ const EmptyCaption = styled.p`
 const CartBar = (props) => {
   const [cart, setCart] = useContext(CartContext);
   const totalPrice = cart.reduce((acc, curr) => acc + curr.qty * curr.price, 0);
-  const totalItems = cart.reduce((acc, curr) => acc + curr.qty, 0);
 
   useEffect(() => {
     const data = localStorage.getItem('cart');
@@ -103,7 +102,6 @@ const CartBar = (props) => {
 
   return (
     <Container showCart={props.showCart}>
-      {/* <HideButton onClick={() => props.setShowCart(false)}>▶</HideButton> */}
       <ButtonContainer>
         {cart.length !== 0 && (
           <>

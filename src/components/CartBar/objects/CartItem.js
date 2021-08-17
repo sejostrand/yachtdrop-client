@@ -1,4 +1,4 @@
-import { useState, useEffect, useContext } from 'react';
+import { useState, useContext } from 'react';
 import styled from 'styled-components';
 import { CartContext } from '@assets/utils/CartContext';
 import { COLORS } from '@assets/theme/theme';
@@ -123,9 +123,9 @@ const CartItem = (props) => {
       imgUrl: props.imgUrl,
       qty: props.qty,
     };
+
     const exist = cart.find((x) => x.id === product.id);
     if (exist.qty === 1) {
-      console.log('tu mama');
     } else {
       setCart(
         cart.map((x) =>

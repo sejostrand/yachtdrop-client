@@ -26,7 +26,7 @@ const CoverImg = styled.div`
 const CoverBar = () => {
   class ParamsFilter {
     constructor(queryString) {
-      this.category = queryString.match(/(?<=category.category=)(.*?)(?=\&)/g);
+      this.category = queryString.match(/(?<=category.category=)(.*?)(?=&)/g);
       this.subCategory = queryString.match(
         /(?<=sub_category.subCategory=)(.*?)(?=&)/g
       );
@@ -34,7 +34,7 @@ const CoverBar = () => {
         /(?<=category_tags.categoryTag=)(.*?)(?=&)/g
       );
       this.sort = queryString.match(/(?<=_sort=)(.*?)(?=&)/g);
-      this.search = queryString.match(/(?<=fullDescription=)(.*?)(?=\&)/g);
+      this.search = queryString.match(/(?<=fullDescription=)(.*?)(?=&)/g);
     }
 
     clear() {
@@ -45,7 +45,7 @@ const CoverBar = () => {
     }
 
     setCategory(value) {
-      if (this.category == value) {
+      if (this.category === value) {
         this.category = null;
         this.subCategory = null;
         this.categoryTags = null;
@@ -57,7 +57,7 @@ const CoverBar = () => {
     }
 
     setSubCategory(value) {
-      if (this.subCategory == value) {
+      if (this.subCategory === value) {
         this.subCategory = null;
       } else {
         this.subCategory = value;
@@ -65,7 +65,7 @@ const CoverBar = () => {
     }
 
     setCategoryTag(value) {
-      if (this.categoryTags == null) {
+      if (this.categoryTags === null) {
         this.categoryTags = [value];
       } else if (this.categoryTags.includes(value)) {
         this.categoryTags.splice(this.categoryTags.indexOf(value), 1);
@@ -75,9 +75,9 @@ const CoverBar = () => {
     }
 
     setSort(value) {
-      if (this.sort == `${value}:ASC&`) {
+      if (this.sort === `${value}:ASC&`) {
         this.sort = `${value}:DSC&`;
-      } else if (this.sort == `${value}:DSC&`) {
+      } else if (this.sort === `${value}:DSC&`) {
         this.sort = null;
       } else {
         this.sort = `${value}:ASC&`;
