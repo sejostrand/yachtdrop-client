@@ -122,7 +122,7 @@ const FilterBar = (props) => {
     }
 
     setCategory(value) {
-      if (this.category === value) {
+      if (this.category == value) {
         this.category = null;
         this.subCategory = null;
         this.categoryTags = null;
@@ -134,7 +134,7 @@ const FilterBar = (props) => {
     }
 
     setSubCategory(value) {
-      if (this.subCategory === value) {
+      if (this.subCategory == value) {
         this.subCategory = null;
       } else {
         this.subCategory = value;
@@ -153,9 +153,9 @@ const FilterBar = (props) => {
     }
 
     setSort(value) {
-      if (this.sort === `${value}:ASC&`) {
+      if (this.sort == `${value}:ASC&`) {
         this.sort = `${value}:DSC&`;
-      } else if (this.sort === `${value}:DSC&`) {
+      } else if (this.sort == `${value}:DSC&`) {
         this.sort = null;
       } else {
         this.sort = `${value}:ASC&`;
@@ -185,12 +185,12 @@ const FilterBar = (props) => {
   //document.location.search = state of the filtering query
   const checkCategory = (tag) => {
     const params = new ParamsFilter(document.location.search);
-    return params.category !== tag;
+    return params.category != tag;
   };
 
   const checkSubCategory = (tag) => {
     const params = new ParamsFilter(document.location.search);
-    return params.subCategory !== tag;
+    return params.subCategory != tag;
   };
 
   const checkCategoryTag = (tag) => {
